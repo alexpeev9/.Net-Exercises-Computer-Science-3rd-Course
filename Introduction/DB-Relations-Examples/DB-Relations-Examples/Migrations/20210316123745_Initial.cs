@@ -21,7 +21,7 @@ namespace DB_Relations_Examples.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Types",
+                name: "TypeHotels",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -31,7 +31,7 @@ namespace DB_Relations_Examples.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Types", x => x.Id);
+                    table.PrimaryKey("PK_TypeHotels", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -51,9 +51,9 @@ namespace DB_Relations_Examples.Migrations
                 {
                     table.PrimaryKey("PK_Hotels", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Hotels_Types_TypeId",
+                        name: "FK_Hotels_TypeHotels_TypeId",
                         column: x => x.TypeId,
-                        principalTable: "Types",
+                        principalTable: "TypeHotels",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Restrict);
                 });
@@ -105,7 +105,7 @@ namespace DB_Relations_Examples.Migrations
                 name: "Hotels");
 
             migrationBuilder.DropTable(
-                name: "Types");
+                name: "TypeHotels");
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using DB_Relations_Examples.Repositories;
+using DB_Relations_Examples.Repositories.Interfaces;
+using DB_Relations_Examples.Seed;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 
@@ -13,9 +16,11 @@ namespace DB_Relations_Examples
 
             services.AddDbContext<ApplicationDbContext>(options =>
             {
-                options.UseSqlServer("Server=localhost\\MSSQLSERVER02;Database=HotelDataBase;Trusted_Connection=True;");
+                options.UseSqlServer("Server=localhost\\MSSQLSERVER02;Database=HotelDataBaseFixed;Trusted_Connection=True;");
             });
+            services.AddScoped<IFacilityRepository,FacilityRepository>();
             ServiceProvider = services.BuildServiceProvider();
+            DbInitializer.Seed(ServiceProvider.GetRequiredService<ApplicationDbContext>());
         }
 
         static void Main(string[] args)

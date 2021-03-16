@@ -8,8 +8,10 @@ namespace DB_Relations_Examples
 {
     public class ApplicationDbContext : DbContext
     {
+        public ApplicationDbContext() { }
+        public ApplicationDbContext(DbContextOptions options) : base(options){}
         public DbSet<Hotel> Hotels { get; set; }
-        public DbSet<TypeHotel> Types { get; set; }
+        public DbSet<TypeHotel> TypeHotels { get; set; }
         public DbSet<Facility> Facilities { get; set; }
         public DbSet<HotelFacility> HotelFacilities { get; set; }
 
@@ -18,7 +20,7 @@ namespace DB_Relations_Examples
             optionsBuilder.EnableSensitiveDataLogging();
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Server=localhost\\MSSQLSERVER02;Database=HotelDataBase;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=localhost\\MSSQLSERVER02;Database=HotelDataBaseFixed;Trusted_Connection=True;");
             }
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

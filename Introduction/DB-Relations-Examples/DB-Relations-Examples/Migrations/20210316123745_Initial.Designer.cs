@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DB_Relations_Examples.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20210302131539_Initial")]
+    [Migration("20210316123745_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -101,7 +101,7 @@ namespace DB_Relations_Examples.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Types");
+                    b.ToTable("TypeHotels");
                 });
 
             modelBuilder.Entity("DB_Relations_Examples.Models.Hotel", b =>

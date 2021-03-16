@@ -99,7 +99,7 @@ namespace DB_Relations_Examples.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Types");
+                    b.ToTable("TypeHotels");
                 });
 
             modelBuilder.Entity("DB_Relations_Examples.Models.Hotel", b =>

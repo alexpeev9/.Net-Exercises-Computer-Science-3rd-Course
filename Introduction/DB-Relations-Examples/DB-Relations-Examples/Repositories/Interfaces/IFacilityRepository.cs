@@ -11,7 +11,6 @@ namespace DB_Relations_Examples.Repositories.Interfaces
         Facility GetFacilitiyById (int id);
         void AddFacility(Facility facility);
         void UpdateFacility(Facility facility);
-        void DeleteFacility(Facility facility);
-
+        void DeleteFacility(int id);
     }
 }

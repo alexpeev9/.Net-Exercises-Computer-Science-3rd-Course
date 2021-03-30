@@ -33,8 +33,9 @@
             _appDbContext.SaveChanges();
         }
 
-        public void DeleteFacility(Facility facility)
+        public void DeleteFacility(int id)
         {
+            var facility = _appDbContext.Facilities.SingleOrDefault(x => x.Id == id);
             _appDbContext.Facilities.Remove(facility);
             _appDbContext.SaveChanges();
         }

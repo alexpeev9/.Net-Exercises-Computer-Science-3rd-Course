@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace SimpleBookProject.Migrations
+namespace DemoProject.Migrations
 {
     public partial class Initial : Migration
     {

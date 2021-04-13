@@ -21,8 +21,9 @@
             _appDbContext.Books.Add(book);
             _appDbContext.SaveChanges();
         }
-        public void Update(Book book)
+        public void Edit(Book book)
         {
+            // _appDbContext.Update(book);
             _appDbContext.Entry(book).State = EntityState.Modified;
             _appDbContext.SaveChanges();
         }

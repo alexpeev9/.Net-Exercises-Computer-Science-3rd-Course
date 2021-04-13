@@ -7,7 +7,7 @@
         Book GetBookById(int id);
         IEnumerable<Book> GetAllBooks { get;}
         void Add(Book book);
-        void Update(Book book);
+        void Edit(Book book);
         void Delete(int id);
     }
 }

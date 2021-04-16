@@ -12,6 +12,12 @@
                 context.Brands.AddRange(Brands.Select(c => c.Value));
             }
             context.SaveChanges();
+
+            if (!context.Cars.Any())
+            {
+                context.Cars.AddRange(Cars.Select(c => c.Value));
+            }
+            context.SaveChanges();
         }
 
         // Seed For Brands
@@ -37,6 +43,29 @@
                     }
                 }
                 return brands;
+            }
+        }
+
+        private static Dictionary<string, Car> cars;
+        public static Dictionary<string, Car> Cars
+        {
+            get
+            {
+                if (cars == null)
+                {
+                    var carList = new Car[]
+                    {
+                        new Car { Model = "A3",Year=2006,BrandId=2}
+                    };
+
+                    cars = new Dictionary<string, Car>();
+
+                    foreach (Car car in carList)
+                    {
+                        cars.Add(car.Model, car);
+                    }
+                }
+                return cars;
             }
         }
     }

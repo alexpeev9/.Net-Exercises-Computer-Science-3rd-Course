@@ -1,4 +1,5 @@
-﻿using Models;
+﻿using Data;
+using Models;
 using Repositories.BrandRepository;
 using Repositories.CarRepository;
 using System;
@@ -15,13 +16,15 @@ namespace CarProject
 {
     public partial class HomeForm : Form
     {
-        private readonly ICarRepository _carRepository;
-        private readonly IBrandRepository _brandRepository;
+        private readonly ApplicationDbContext _appDbContext;
+        private readonly CarRepository _carRepository;
+        private readonly BrandRepository _brandRepository;
         
         public HomeForm()
         {
-            _carRepository = (ICarRepository)StartUp.ServiceProvider.GetService(typeof(ICarRepository));
-            _brandRepository = (IBrandRepository)StartUp.ServiceProvider.GetService(typeof(IBrandRepository));
+
+            _carRepository = new CarRepository(_appDbContext);
+            _brandRepository = new BrandRepository(_appDbContext);
             InitializeComponent();
             OnStart();
             GetData();
@@ -101,7 +104,6 @@ namespace CarProject
             ClearForm();
             GetData();
         }
-
         private void CarGridView_RowHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             int rowIndex = e.RowIndex;

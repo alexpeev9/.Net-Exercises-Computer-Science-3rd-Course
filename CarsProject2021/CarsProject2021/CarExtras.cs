@@ -1,5 +1,6 @@
 ﻿namespace CarsProject2021
 {
+    using Data;
     using Models;
     using Repositories.CarExtraRepository;
     using Repositories.CarRepository;
@@ -9,16 +10,20 @@
     using System.Windows.Forms;
     public partial class CarExtras : Form
     {
-        private readonly ICarExtraRepository _carExtraRepository;
-        private readonly ICarRepository _carRepository;
-        private readonly IExtraRepository _extraRepository;
+        private readonly ApplicationDbContext _context;
+        private readonly CarExtraRepository _carExtraRepository;
+        private readonly CarRepository _carRepository;
+        private readonly ExtraRepository _extraRepository;
         private readonly int _currentId;
         public CarExtras(int currentId)
         {
             _currentId = currentId;
-            _carExtraRepository = (ICarExtraRepository)StartUp.ServiceProvider.GetService(typeof(ICarExtraRepository));
-            _extraRepository = (IExtraRepository)StartUp.ServiceProvider.GetService(typeof(IExtraRepository));
-            _carRepository = (ICarRepository)StartUp.ServiceProvider.GetService(typeof(ICarRepository));
+            _carExtraRepository = new CarExtraRepository(_context);
+            _carRepository = new CarRepository(_context);
+            _extraRepository = new ExtraRepository(_context);
+            //_carExtraRepository = (ICarExtraRepository)StartUp.ServiceProvider.GetService(typeof(ICarExtraRepository));
+            //_extraRepository = (IExtraRepository)StartUp.ServiceProvider.GetService(typeof(IExtraRepository));
+            //_carRepository = (ICarRepository)StartUp.ServiceProvider.GetService(typeof(ICarRepository));
             InitializeComponent();
             OnStart();
             GetData();

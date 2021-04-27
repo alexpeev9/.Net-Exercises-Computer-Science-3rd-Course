@@ -33,6 +33,7 @@ namespace CarsProject2021
             CarGridView.Columns[0].Name = "Id";
             CarGridView.Columns[1].Name = "Model";
             CarGridView.Columns[2].Name = "Year";
+            CarGridView.Columns[3].Name = "HasInsurance";
             CarGridView.Columns[4].Name = "Brand";
             CarGridView.Columns[5].Name = "Extras";
             var brandNames = _brandRepository.GetAllBrands

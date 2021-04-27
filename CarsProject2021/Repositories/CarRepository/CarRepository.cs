@@ -41,6 +41,7 @@
             var oldcar = _appDbContext.Cars.Single(x => x.Id == car.Id);
             oldcar.Model = car.Model;
             oldcar.Year = car.Year;
+            oldcar.HasInsurance = car.HasInsurance;
             oldcar.BrandId = car.BrandId;
             _appDbContext.Entry(oldcar).State = EntityState.Modified;
             //_appDbContext.Cars.Update(car);

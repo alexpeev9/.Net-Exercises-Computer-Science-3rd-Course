@@ -71,6 +71,7 @@ namespace CarProject
             CarExtras f2 = new CarExtras(carId);
             f2.ShowDialog();
             GetData();
+
         }
         private void ClearForm()
         {

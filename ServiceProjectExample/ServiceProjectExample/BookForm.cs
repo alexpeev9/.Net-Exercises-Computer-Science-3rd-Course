@@ -44,5 +44,20 @@
                 ErrorInputName.SetError(InputName, "");
             }
         }
+
+        private void ErrorForDescription(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(InputDescription.Text))
+            {
+                e.Cancel = true;
+                //InputName.Focus();
+                ErrorInputName.SetError(InputDescription, "Description should not be left blank!");
+            }
+            else
+            {
+                e.Cancel = false;
+                ErrorInputName.SetError(InputDescription, "");
+            }
+        }
     }
 }

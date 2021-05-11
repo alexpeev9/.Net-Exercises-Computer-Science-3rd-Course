@@ -38,8 +38,10 @@ namespace ServiceProjectExample
             this.InputDescription = new System.Windows.Forms.TextBox();
             this.InputYear = new System.Windows.Forms.NumericUpDown();
             this.ErrorInputName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.ErrorInputDescription = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.InputYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorInputName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorInputDescription)).BeginInit();
             this.SuspendLayout();
             // 
             // CreateBtn
@@ -102,6 +104,7 @@ namespace ServiceProjectExample
             this.InputDescription.Name = "InputDescription";
             this.InputDescription.Size = new System.Drawing.Size(186, 32);
             this.InputDescription.TabIndex = 7;
+            this.InputDescription.Validating += new System.ComponentModel.CancelEventHandler(this.ErrorForDescription);
             // 
             // InputYear
             // 
@@ -114,6 +117,10 @@ namespace ServiceProjectExample
             // ErrorInputName
             // 
             this.ErrorInputName.ContainerControl = this;
+            // 
+            // ErrorInputDescription
+            // 
+            this.ErrorInputDescription.ContainerControl = this;
             // 
             // BookForm
             // 
@@ -132,6 +139,7 @@ namespace ServiceProjectExample
             this.Text = "Book Form";
             ((System.ComponentModel.ISupportInitialize)(this.InputYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ErrorInputName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ErrorInputDescription)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -147,6 +155,7 @@ namespace ServiceProjectExample
         private System.Windows.Forms.TextBox InputDescription;
         private System.Windows.Forms.NumericUpDown InputYear;
         private System.Windows.Forms.ErrorProvider ErrorInputName;
+        private System.Windows.Forms.ErrorProvider ErrorInputDescription;
     }
 }
 
